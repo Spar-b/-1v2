@@ -65,12 +65,14 @@ namespace П1v2
         {
             if(comboBox1.SelectedIndex == -1)
             {
-                MessageBox.Show("Не обрано величину для обрахунку","Помилка введення",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Не обрано величину для обрахунку","Помилка введення",
+                    MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
             if(textBox1.Text.Length == 0)
             {
-                MessageBox.Show("Не введено значення у текстове поле", "Помилка введення", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Не введено значення у текстове поле", "Помилка введення",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             switch(comboBox1.SelectedIndex)
@@ -94,7 +96,8 @@ namespace П1v2
                         double result;
                         if (h == 0)
                         {
-                            MessageBox.Show("Помилка, ділення на нуль","Помилка обрахунків", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Помилка, ділення на нуль","Помилка обрахунків",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                         else result = Math.Sqrt(2 * g) / h;
@@ -144,8 +147,8 @@ namespace П1v2
                         label2.Text = "Висота підйому (м)";
                     }
                     break;
-
             }
+            textBox1.Text = null;
         }
 
         private void допомогаToolStripMenuItem_Click(object sender, EventArgs e)

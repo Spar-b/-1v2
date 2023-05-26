@@ -33,13 +33,13 @@ namespace П1v2
             this.обрахуватиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.назаддоМенюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вийтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.допомогаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.допомогаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@ namespace П1v2
             this.проПрограмуToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(970, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(999, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -82,65 +82,6 @@ namespace П1v2
             this.вийтиToolStripMenuItem.Text = "Вийти";
             this.вийтиToolStripMenuItem.Click += new System.EventHandler(this.вийтиToolStripMenuItem_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(186, 212);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 41);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(181, 169);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 36);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(556, 212);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(274, 41);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(551, 169);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 36);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "1) Висота підйому тіла, кинутого ветикально вгору",
-            "2) Початкова швидкість тіла, кинутого вертикально вгору",
-            "3) Час підйому тіла, кинутого вертикально вгору",
-            "4) Висота підйому  тіла, кинутого вертикально вгору"});
-            this.comboBox1.Location = new System.Drawing.Point(662, 0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(296, 33);
-            this.comboBox1.TabIndex = 5;
-            this.comboBox1.Text = "Дія";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // допомогаToolStripMenuItem
             // 
             this.допомогаToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -157,11 +98,70 @@ namespace П1v2
             this.проПрограмуToolStripMenuItem.Text = "Про програму";
             this.проПрограмуToolStripMenuItem.Click += new System.EventHandler(this.проПрограмуToolStripMenuItem_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(200, 241);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(247, 41);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(195, 198);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 36);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.Location = new System.Drawing.Point(570, 241);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(274, 41);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(565, 198);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 36);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "label2";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1) Висота підйому тіла, кинутого ветикально вгору",
+            "2) Початкова швидкість тіла, кинутого вертикально вгору",
+            "3) Час підйому тіла, кинутого вертикально вгору",
+            "4) Висота підйому  тіла, кинутого вертикально вгору"});
+            this.comboBox1.Location = new System.Drawing.Point(702, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(285, 33);
+            this.comboBox1.TabIndex = 5;
+            this.comboBox1.Text = "Дія";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(970, 438);
+            this.ClientSize = new System.Drawing.Size(999, 496);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);

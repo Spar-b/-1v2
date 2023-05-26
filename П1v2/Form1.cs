@@ -33,5 +33,11 @@ namespace П1v2
             Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
             currentForm.Hide();
         }
+
+        private void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Оберіть один з перелічених варіантів роботи програми","Допомога",
+                MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
     }
 }

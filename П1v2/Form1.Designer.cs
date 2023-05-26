@@ -68,20 +68,23 @@ namespace П1v2
             this.проПрограмуToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 36);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // допомогаToolStripMenuItem
             // 
+            this.допомогаToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.допомогаToolStripMenuItem.Name = "допомогаToolStripMenuItem";
-            this.допомогаToolStripMenuItem.Size = new System.Drawing.Size(94, 24);
+            this.допомогаToolStripMenuItem.Size = new System.Drawing.Size(120, 32);
             this.допомогаToolStripMenuItem.Text = "Допомога";
+            this.допомогаToolStripMenuItem.Click += new System.EventHandler(this.допомогаToolStripMenuItem_Click);
             // 
             // проПрограмуToolStripMenuItem
             // 
+            this.проПрограмуToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.проПрограмуToolStripMenuItem.Name = "проПрограмуToolStripMenuItem";
-            this.проПрограмуToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.проПрограмуToolStripMenuItem.Size = new System.Drawing.Size(159, 32);
             this.проПрограмуToolStripMenuItem.Text = "Про програму";
             this.проПрограмуToolStripMenuItem.Click += new System.EventHandler(this.проПрограмуToolStripMenuItem_Click);
             // 

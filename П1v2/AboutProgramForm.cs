@@ -12,7 +12,7 @@ namespace П1v2
 {
     public partial class AboutProgramForm : Form
     {
-        public string version = "0.0.0";
+        public string version = "0.0.1";
         public AboutProgramForm()
         {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace П1v2
             form1.Show();
             Button button = button1;
             Form currentForm = (Form)button.FindForm();
-            currentForm.Hide();
+            currentForm.Close();
         }
     }
 }

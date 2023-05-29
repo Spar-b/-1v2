@@ -12,7 +12,7 @@ namespace П1v2
 {
     public partial class AboutProgramForm : Form
     {
-        public string version = "0.0.2";
+        public string version = "0.1.1";
         public AboutProgramForm()
         {
             InitializeComponent();
@@ -25,8 +25,8 @@ namespace П1v2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
+            MenuForm menuForm = new MenuForm();
+            menuForm.Show();
             Button button = button1;
             Form currentForm = (Form)button.FindForm();
             currentForm.Close();

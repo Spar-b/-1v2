@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace П1v2
 {
-    public partial class Form2 : Form
+    public partial class Task1Form : Form
     {
         private double g = 9.8;
-        public Form2()
+        public Task1Form()
         {
             InitializeComponent();
             
@@ -26,8 +26,8 @@ namespace П1v2
 
         public void назаддоМенюToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
+            MenuForm menuForm = new MenuForm();
+            menuForm.Show();
 
             ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
             Form currentForm = (Form)menuItem.GetCurrentParent().FindForm(); 
@@ -60,23 +60,6 @@ namespace П1v2
                 e.Handled = true;
             }
         }
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            textBox1.KeyPress += textBox_KeyPress;
-            Form1 form1 = new Form1();
-            допомогаToolStripMenuItem.Click += form1.допомогаToolStripMenuItem_Click;
-
-            Task2Form task2 = new Task2Form();
-            проПрограмуToolStripMenuItem1.Click += task2.проПрограмуToolStripMenuItem1_Click;
-            допомогаToolStripMenuItem1.Click += task2.допомогаToolStripMenuItem1_Click;
-            назадДоМенюToolStripMenuItem1.Click += task2.назаддоМенюToolStripMenuItem_Click;
-            вийтиToolStripMenuItem1.Click += task2.вийтиToolStripMenuItem_Click;
-
-            label1.Text = null;
-            label2.Text = null;
-            label3.Text = "Завдання №1:\na) висота підйому тіла, кинутого вертикально вгору\nб) початкова швидкість тіла, кинутого вертикально вгору, висота підйому якого дорівнює h\nв) час підйому тіла \nг) висота підйому тіла\nПримітка: Прискорення вільного падіння g = 9,8 м / сек2";
-        }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (textBox1.Text.Length == 0)
@@ -135,8 +118,26 @@ namespace П1v2
 
         private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.проПрограмуToolStripMenuItem_Click(sender, e);
+            MenuForm menuForm = new MenuForm();
+            menuForm.проПрограмуToolStripMenuItem_Click(sender, e);
+        }
+
+        private void Task1Form_Load(object sender, EventArgs e)
+        {
+            textBox1.KeyPress += textBox_KeyPress;
+            MenuForm menuForm = new MenuForm();
+            допомогаToolStripMenuItem.Click += menuForm.допомогаToolStripMenuItem_Click;
+
+            Task2Form task2 = new Task2Form();
+            проПрограмуToolStripMenuItem1.Click += task2.проПрограмуToolStripMenuItem1_Click;
+            допомогаToolStripMenuItem1.Click += task2.допомогаToolStripMenuItem1_Click;
+            назадДоМенюToolStripMenuItem1.Click += task2.назаддоМенюToolStripMenuItem_Click;
+            вийтиToolStripMenuItem1.Click += task2.вийтиToolStripMenuItem_Click;
+
+            label1.Text = null;
+            label2.Text = null;
+            label3.Text = "Завдання №1:\na) висота підйому тіла, кинутого вертикально вгору\nб) початкова швидкість тіла, кинутого вертикально вгору, висота підйому якого дорівнює h\nв) час підйому тіла \nг) висота підйому тіла\nПримітка: Прискорення вільного падіння g = 9,8 м / сек2";
+
         }
     }
 }

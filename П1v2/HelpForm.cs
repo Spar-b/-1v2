@@ -19,8 +19,8 @@ namespace П1v2
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
+            MenuForm menuForm = new MenuForm();
+            menuForm.Show();
             ToolStripMenuItem menuItem = (ToolStripMenuItem)sender; ;
             Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
             currentForm.Close();

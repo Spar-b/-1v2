@@ -19,11 +19,11 @@ namespace П1v2
         public Task2Form()
         {
             InitializeComponent();
-            Form1 menu = new Form1();
+            MenuForm menu = new MenuForm();
             проПрограмуToolStripMenuItem.Click += menu.проПрограмуToolStripMenuItem_Click;
             допомогаToolStripMenuItem.Click += menu.допомогаToolStripMenuItem_Click;
 
-            Form2 task1 = new Form2();
+            Task1Form task1 = new Task1Form();
             назаддоМенюToolStripMenuItem.Click += task1.назаддоМенюToolStripMenuItem_Click;
 
             обчислитиToolStripMenuItem1.Click += обчислитиToolStripMenuItem_Click;
@@ -110,8 +110,8 @@ namespace П1v2
         }
         public void назаддоМенюToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
+            MenuForm menuForm = new MenuForm();
+            menuForm.Show();
 
             ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
             ContextMenuStrip contextMenu = (ContextMenuStrip)menuItem.Owner;

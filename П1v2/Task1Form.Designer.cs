@@ -1,7 +1,7 @@
 ﻿
 namespace П1v2
 {
-    partial class Form2
+    partial class Task1Form
     {
         /// <summary>
         /// Required designer variable.
@@ -203,7 +203,7 @@ namespace П1v2
             this.проПрограмуToolStripMenuItem1.Size = new System.Drawing.Size(220, 32);
             this.проПрограмуToolStripMenuItem1.Text = "Про програму";
             // 
-            // Form2
+            // Task1Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -217,9 +217,9 @@ namespace П1v2
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form2";
+            this.Name = "Task1Form";
             this.Text = "Обчислення величин";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Load += new System.EventHandler(this.Task1Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);

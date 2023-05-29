@@ -102,7 +102,7 @@ namespace П1v2
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(200, 241);
+            this.textBox1.Location = new System.Drawing.Point(114, 241);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(247, 41);
             this.textBox1.TabIndex = 1;
@@ -112,7 +112,7 @@ namespace П1v2
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(195, 198);
+            this.label1.Location = new System.Drawing.Point(109, 198);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 36);
             this.label1.TabIndex = 2;
@@ -125,7 +125,7 @@ namespace П1v2
             this.textBox2.Location = new System.Drawing.Point(570, 241);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(274, 41);
+            this.textBox2.Size = new System.Drawing.Size(417, 41);
             this.textBox2.TabIndex = 3;
             // 
             // label2

@@ -17,12 +17,6 @@ namespace П1v2
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form2 form2 = new Form2();
-            this.Hide();
-            form2.Show();
-        }
 
         public void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -38,6 +32,20 @@ namespace П1v2
         {
             MessageBox.Show("Оберіть один з перелічених варіантів роботи програми","Допомога",
                 MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           switch(comboBox1.SelectedIndex)
+            {
+                case 0:
+                    {
+                        Form2 form2 = new Form2();
+                        this.Hide();
+                        form2.Show();
+                    }
+                    break;
+            }
         }
     }
 }

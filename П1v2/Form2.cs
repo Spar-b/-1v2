@@ -154,7 +154,7 @@ namespace П1v2
         private void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Оберіть бажану дію та введіть відповідні вхідні дані, " +
-                "після того натисніть 'Обчислити'","Допомога",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                "після того натисніть 'Обчислити'\n\nПЗ:\nЗавдання №1:\na) висота підйому тіла, кинутого вертикально вгору\nб) початкова швидкість тіла, кинутого вертикально вгору, висота підйому якого дорівнює h\nв) час підйому тіла \nг) висота підйому тіла\nПримітка: Прискорення вільного падіння g = 9,8 м / сек2", "Допомога",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)

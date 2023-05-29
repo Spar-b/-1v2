@@ -28,24 +28,25 @@ namespace П1v2
             currentForm.Hide();
         }
 
-        private void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
+        public void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Оберіть один з перелічених варіантів роботи програми","Допомога",
-                MessageBoxButtons.OK,MessageBoxIcon.Information);
+            HelpForm helpForm = new HelpForm();
+            helpForm.Show();
+
+            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
+            Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
+            currentForm.Hide();
+        }
+        private void завдання1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            this.Hide();
+            form2.Show();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void вийтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           switch(comboBox1.SelectedIndex)
-            {
-                case 0:
-                    {
-                        Form2 form2 = new Form2();
-                        this.Hide();
-                        form2.Show();
-                    }
-                    break;
-            }
+            Environment.Exit(0);
         }
     }
 }

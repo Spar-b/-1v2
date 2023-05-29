@@ -10,26 +10,25 @@ using System.Windows.Forms;
 
 namespace П1v2
 {
-    public partial class AboutProgramForm : Form
+    public partial class HelpForm : Form
     {
-        public string version = "0.0.2";
-        public AboutProgramForm()
+        public HelpForm()
         {
             InitializeComponent();
         }
 
-        private void AboutProgramForm_Load(object sender, EventArgs e)
-        {
-            textBox1.Text = version;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.Show();
-            Button button = button1;
-            Form currentForm = (Form)button.FindForm();
+            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender; ;
+            Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
             currentForm.Close();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

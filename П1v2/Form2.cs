@@ -17,6 +17,8 @@ namespace П1v2
         {
             InitializeComponent();
             textBox1.KeyPress += textBox_KeyPress;
+            Form1 form1 = new Form1();
+            допомогаToolStripMenuItem.Click += form1.допомогаToolStripMenuItem_Click;
         }
 
         private void вийтиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,31 +62,36 @@ namespace П1v2
                 e.Handled = true;
             }
         }
-
-        private void обрахуватиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex == -1)
-            {
-                MessageBox.Show("Не обрано величину для обрахунку","Помилка введення",
-                    MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-            if(textBox1.Text.Length == 0)
+            label1.Text = null;
+            label2.Text = null;
+            label3.Text = "Завдання №1:\na) висота підйому тіла, кинутого вертикально вгору\nб) початкова швидкість тіла, кинутого вертикально вгору, висота підйому якого дорівнює h\nв) час підйому тіла \nг) висота підйому тіла\nПримітка: Прискорення вільного падіння g = 9,8 м / сек2";
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length == 0)
             {
                 MessageBox.Show("Не введено значення у текстове поле", "Помилка введення",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            switch(comboBox1.SelectedIndex)
+            switch (comboBox1.SelectedIndex)
             {
                 case 0:
                     {
+                        label1.Text = "Початкова швидкість (м/с)";
+                        label2.Text = "Висота підйому (м)";
                         double v = Convert.ToDouble(textBox1.Text);
                         double result = (v * v) / (2 * g);
                         textBox2.Text = result.ToString("0.000");
-                    }break;
+                    }
+                    break;
                 case 1:
                     {
+                        label1.Text = "Висота підйому (м)";
+                        label2.Text = "Початкова швидкість (м/с)";
                         double h = Convert.ToDouble(textBox1.Text);
                         double result = Math.Sqrt(2 * g * h);
                         textBox2.Text = result.ToString("0.000");
@@ -92,11 +99,13 @@ namespace П1v2
                     break;
                 case 2:
                     {
+                        label1.Text = "Висота підйому (м)";
+                        label2.Text = "Час підйому (с)";
                         double h = Convert.ToDouble(textBox1.Text);
                         double result;
                         if (h == 0)
                         {
-                            MessageBox.Show("Помилка, ділення на нуль","Помилка обрахунків",
+                            MessageBox.Show("Помилка, ділення на нуль", "Помилка обрахунків",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
@@ -106,6 +115,8 @@ namespace П1v2
                     break;
                 case 3:
                     {
+                        label1.Text = "Час підйому (с)";
+                        label2.Text = "Висота підйому (м)";
                         double t = Convert.ToDouble(textBox1.Text);
                         double result = 0.5 * g * t * t;
                         textBox2.Text = result.ToString("0.000");
@@ -114,47 +125,10 @@ namespace П1v2
             }
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            label1.Text = null;
-            label2.Text = null;
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch(comboBox1.SelectedIndex)
-            {
-                case 0:
-                    {
-                        label1.Text = "Початкова швидкість (м/с)";
-                        label2.Text = "Висота підйому (м)";
-                    }break;
-                case 1:
-                    {
-                        label1.Text = "Висота підйому (м)";
-                        label2.Text = "Початкова швидкість (м/с)";
-                    }
-                    break;
-                case 2:
-                    {
-                        label1.Text = "Висота підйому (м)";
-                        label2.Text = "Час підйому (с)";
-                    }
-                    break;
-                case 3:
-                    {
-                        label1.Text = "Час підйому (с)";
-                        label2.Text = "Висота підйому (м)";
-                    }
-                    break;
-            }
-            textBox1.Text = null;
-        }
-
         private void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Оберіть бажану дію та введіть відповідні вхідні дані, " +
-                "після того натисніть 'Обчислити'\n\nПЗ:\nЗавдання №1:\na) висота підйому тіла, кинутого вертикально вгору\nб) початкова швидкість тіла, кинутого вертикально вгору, висота підйому якого дорівнює h\nв) час підйому тіла \nг) висота підйому тіла\nПримітка: Прискорення вільного падіння g = 9,8 м / сек2", "Допомога",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                "після того натисніть 'Обчислити'\n\nПЗ:\n", "Допомога",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)

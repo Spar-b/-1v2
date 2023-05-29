@@ -33,7 +33,9 @@ namespace П1v2
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.допомогаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.завдання1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.завдання2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вийтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,8 +54,11 @@ namespace П1v2
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.завдання1ToolStripMenuItem,
+            this.завдання2ToolStripMenuItem,
             this.допомогаToolStripMenuItem,
-            this.проПрограмуToolStripMenuItem});
+            this.проПрограмуToolStripMenuItem,
+            this.вийтиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 36);
@@ -76,25 +81,34 @@ namespace П1v2
             this.проПрограмуToolStripMenuItem.Text = "Про програму";
             this.проПрограмуToolStripMenuItem.Click += new System.EventHandler(this.проПрограмуToolStripMenuItem_Click);
             // 
-            // comboBox1
+            // завдання1ToolStripMenuItem
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Завдання №1"});
-            this.comboBox1.Location = new System.Drawing.Point(281, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(245, 33);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.Text = "Завдання";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.завдання1ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.завдання1ToolStripMenuItem.Name = "завдання1ToolStripMenuItem";
+            this.завдання1ToolStripMenuItem.Size = new System.Drawing.Size(151, 32);
+            this.завдання1ToolStripMenuItem.Text = "Завдання №1";
+            this.завдання1ToolStripMenuItem.Click += new System.EventHandler(this.завдання1ToolStripMenuItem_Click);
+            // 
+            // завдання2ToolStripMenuItem
+            // 
+            this.завдання2ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.завдання2ToolStripMenuItem.Name = "завдання2ToolStripMenuItem";
+            this.завдання2ToolStripMenuItem.Size = new System.Drawing.Size(151, 32);
+            this.завдання2ToolStripMenuItem.Text = "Завдання №2";
+            // 
+            // вийтиToolStripMenuItem
+            // 
+            this.вийтиToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.вийтиToolStripMenuItem.Name = "вийтиToolStripMenuItem";
+            this.вийтиToolStripMenuItem.Size = new System.Drawing.Size(81, 32);
+            this.вийтиToolStripMenuItem.Text = "Вийти";
+            this.вийтиToolStripMenuItem.Click += new System.EventHandler(this.вийтиToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 478);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -114,7 +128,9 @@ namespace П1v2
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem допомогаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem проПрограмуToolStripMenuItem;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ToolStripMenuItem завдання1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem завдання2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem вийтиToolStripMenuItem;
     }
 }
 

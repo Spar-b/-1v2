@@ -16,9 +16,7 @@ namespace П1v2
         public Form2()
         {
             InitializeComponent();
-            textBox1.KeyPress += textBox_KeyPress;
-            Form1 form1 = new Form1();
-            допомогаToolStripMenuItem.Click += form1.допомогаToolStripMenuItem_Click;
+            
         }
 
         private void вийтиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -26,7 +24,7 @@ namespace П1v2
             Environment.Exit(0);
         }
 
-        private void назаддоМенюToolStripMenuItem_Click(object sender, EventArgs e)
+        public void назаддоМенюToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
             form1.Show();
@@ -64,6 +62,16 @@ namespace П1v2
         }
         private void Form2_Load(object sender, EventArgs e)
         {
+            textBox1.KeyPress += textBox_KeyPress;
+            Form1 form1 = new Form1();
+            допомогаToolStripMenuItem.Click += form1.допомогаToolStripMenuItem_Click;
+
+            Task2Form task2 = new Task2Form();
+            проПрограмуToolStripMenuItem1.Click += task2.проПрограмуToolStripMenuItem1_Click;
+            допомогаToolStripMenuItem1.Click += task2.допомогаToolStripMenuItem1_Click;
+            назадДоМенюToolStripMenuItem1.Click += task2.назаддоМенюToolStripMenuItem_Click;
+            вийтиToolStripMenuItem1.Click += task2.вийтиToolStripMenuItem_Click;
+
             label1.Text = null;
             label2.Text = null;
             label3.Text = "Завдання №1:\na) висота підйому тіла, кинутого вертикально вгору\nб) початкова швидкість тіла, кинутого вертикально вгору, висота підйому якого дорівнює h\nв) час підйому тіла \nг) висота підйому тіла\nПримітка: Прискорення вільного падіння g = 9,8 м / сек2";
@@ -123,12 +131,6 @@ namespace П1v2
                     }
                     break;
             }
-        }
-
-        private void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Оберіть бажану дію та введіть відповідні вхідні дані, " +
-                "після того натисніть 'Обчислити'\n\nПЗ:\n", "Допомога",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)

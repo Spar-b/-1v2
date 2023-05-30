@@ -116,17 +116,11 @@ namespace П1v2
             }
         }
 
-        private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuForm menuForm = new MenuForm();
-            menuForm.проПрограмуToolStripMenuItem_Click(sender, e);
-        }
-
         private void Task1Form_Load(object sender, EventArgs e)
         {
             textBox1.KeyPress += textBox_KeyPress;
             MenuForm menuForm = new MenuForm();
-            допомогаToolStripMenuItem.Click += menuForm.допомогаToolStripMenuItem_Click;
+            допомогаToolStripMenuItem.Click += допомогаToolStripMenuItem_Click;
 
             Task2Form task2 = new Task2Form();
             проПрограмуToolStripMenuItem1.Click += task2.проПрограмуToolStripMenuItem1_Click;
@@ -138,6 +132,25 @@ namespace П1v2
             label2.Text = null;
             label3.Text = "Завдання №1:\na) висота підйому тіла, кинутого вертикально вгору\nб) початкова швидкість тіла, кинутого вертикально вгору, висота підйому якого дорівнює h\nв) час підйому тіла \nг) висота підйому тіла\nПримітка: Прискорення вільного падіння g = 9,8 м / сек2";
 
+        }
+        public void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutProgramForm aboutProgram = new AboutProgramForm();
+            aboutProgram.Show();
+
+            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
+            Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
+            currentForm.Hide();
+        }
+
+        public void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            helpForm.Show();
+
+            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
+            Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
+            currentForm.Hide();
         }
     }
 }

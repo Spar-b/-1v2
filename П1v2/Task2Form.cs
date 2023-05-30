@@ -20,11 +20,10 @@ namespace П1v2
         {
             InitializeComponent();
             MenuForm menu = new MenuForm();
-            проПрограмуToolStripMenuItem.Click += menu.проПрограмуToolStripMenuItem_Click;
-            допомогаToolStripMenuItem.Click += menu.допомогаToolStripMenuItem_Click;
+            проПрограмуToolStripMenuItem.Click += проПрограмуToolStripMenuItem_Click;
+            допомогаToolStripMenuItem.Click += допомогаToolStripMenuItem_Click;
 
             Task1Form task1 = new Task1Form();
-            назаддоМенюToolStripMenuItem.Click += task1.назаддоМенюToolStripMenuItem_Click;
 
             обчислитиToolStripMenuItem1.Click += обчислитиToolStripMenuItem_Click;
             прочитатиЗФайлуToolStripMenuItem1.Click += прочитатиЗФайлуToolStripMenuItem_Click;
@@ -38,53 +37,96 @@ namespace П1v2
         {
             Environment.Exit(0);
         }
+        public void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutProgramForm aboutProgram = new AboutProgramForm();
+            aboutProgram.Show();
 
+            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
+            Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
+            currentForm.Hide();
+        }
+
+        public void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            helpForm.Show();
+
+            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
+            Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
+            currentForm.Hide();
+        }
         public void обчислитиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            double i = 1, y = 1;
-            listBox1.Items.Clear();
-            while(y > precision)
+            double y,sum=0;int i = 1;
+            using (StreamWriter w = new StreamWriter(filepath))
             {
-                y = Math.Pow(i, 2) / ((i+1)* Math.Pow(3,i));
+                w.WriteLine("i\ty");
+            }
+            listBox1.Items.Clear();
+            if (checkBox1.Checked)
+                listBox1.Items.Add("i\ty");
+            y = Math.Pow(i, 2) / ((i + 1) * Math.Pow(3, i));
+            while (y > precision)
+            {
+                y = Math.Pow(i, 2) / ((i + 1) * Math.Pow(3, i));
+                sum += y;
                 if (checkBox1.Checked)
-                    listBox1.Items.Add($"i:\t{i.ToString("0.000")}\ty:\t{y.ToString("0.000")}");
-                if(checkBox2.Checked)
+                    listBox1.Items.Add($"{i}\t{y.ToString("0.000")}");
+                if (checkBox2.Checked)
                 {
-                    using (StreamWriter writer = new StreamWriter(filepath,true))
+                    using (StreamWriter writer = new StreamWriter(filepath, true))
                     {
-                        writer.WriteLine($"i:\t{i.ToString("0.000")}\ty:\t{y.ToString("0.000")}");
+                        writer.WriteLine($"{i}\t{y.ToString("0.000")}");
                         isFileEmpty = false;
                     }
                 }
-                i += precision;
+                i++;
+            }
+            if (checkBox1.Checked) textBox1.Text = sum.ToString("0.000");
+            if (checkBox2.Checked)
+            {
+                using (StreamWriter writer = new StreamWriter(filepath, true))
+                {
+                    writer.WriteLine($"{sum.ToString("0.000")}");
+                }
             }
         }
 
         private void Task2Form_Load(object sender, EventArgs e)
         {
-            StreamWriter writer = new StreamWriter(filepath);
+            using (StreamWriter writer = new StreamWriter(filepath))
+            {
+
+            }
             isFileEmpty = true;
         }
 
         public void прочитатиЗФайлуToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            if(isFileEmpty)
+            if (isFileEmpty)
             {
                 MessageBox.Show("Файл порожній", "Помилка введення", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             using (StreamReader reader = new StreamReader(filepath))
             {
-                string m = reader.ReadToEnd();
-                string[] lines = m.Split('\n');
-                foreach(string line in lines)
+                string content = reader.ReadToEnd();
+                string[] lines = content.Split('\n');
+                int numLines = lines.Length;
+                for (int i = 0; i < numLines; i++)
                 {
-                    listBox1.Items.Add(line);
+                    if (i == numLines - 2)
+                        textBox1.Text = lines[i].Trim();
+                    else
+                        listBox1.Items.Add(lines[i].Trim());
                 }
             }
-
         }
+
+
+
 
         public void допомогаToolStripMenuItem1_Click(object sender, EventArgs e)
         {

@@ -31,7 +31,6 @@ namespace П1v2
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.назаддоМенюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вийтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.допомогаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +53,6 @@ namespace П1v2
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.назаддоМенюToolStripMenuItem,
             this.вийтиToolStripMenuItem,
             this.допомогаToolStripMenuItem,
             this.проПрограмуToolStripMenuItem});
@@ -63,14 +61,6 @@ namespace П1v2
             this.menuStrip1.Size = new System.Drawing.Size(999, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // назаддоМенюToolStripMenuItem
-            // 
-            this.назаддоМенюToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.назаддоМенюToolStripMenuItem.Name = "назаддоМенюToolStripMenuItem";
-            this.назаддоМенюToolStripMenuItem.Size = new System.Drawing.Size(165, 32);
-            this.назаддоМенюToolStripMenuItem.Text = "Назад до меню";
-            this.назаддоМенюToolStripMenuItem.Click += new System.EventHandler(this.назаддоМенюToolStripMenuItem_Click);
             // 
             // вийтиToolStripMenuItem
             // 
@@ -231,7 +221,6 @@ namespace П1v2
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem назаддоМенюToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вийтиToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;

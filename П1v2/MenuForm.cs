@@ -25,9 +25,6 @@ namespace П1v2
             AboutProgramForm aboutProgram = new AboutProgramForm();
             aboutProgram.Show();
 
-            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
-            Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
-            currentForm.Hide();
         }
 
         public void допомогаToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,14 +32,10 @@ namespace П1v2
             HelpForm helpForm = new HelpForm();
             helpForm.Show();
 
-            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
-            Form currentForm = (Form)menuItem.GetCurrentParent().FindForm();
-            currentForm.Hide();
         }
         private void завдання1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Task1Form form2 = new Task1Form();
-            this.Hide();
             form2.Show();
         }
 
@@ -54,7 +47,6 @@ namespace П1v2
         private void завдання2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Task2Form task2 = new Task2Form();
-            this.Hide();
             task2.Show();
         }
         private void menuForm_Load(object sender, EventArgs e)

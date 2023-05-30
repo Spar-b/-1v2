@@ -31,5 +31,10 @@ namespace П1v2
             Form currentForm = (Form)button.FindForm();
             currentForm.Close();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

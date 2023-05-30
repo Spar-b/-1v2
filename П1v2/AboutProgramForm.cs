@@ -17,7 +17,7 @@ namespace П1v2
         {
             InitializeComponent();
         }
-
+        
         private void AboutProgramForm_Load(object sender, EventArgs e)
         {
             textBox1.Text = version;

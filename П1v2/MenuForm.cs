@@ -59,5 +59,11 @@ namespace П1v2
             допомогаToolStripMenuItem1.Click += task2.допомогаToolStripMenuItem1_Click;
             проПрограмуToolStripMenuItem1.Click += task2.проПрограмуToolStripMenuItem1_Click;
         }
+
+        private void завдання3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Task3Form task3 = new Task3Form();
+            task3.Show();
+        }
     }
 }

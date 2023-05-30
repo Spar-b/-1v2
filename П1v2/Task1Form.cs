@@ -125,7 +125,6 @@ namespace П1v2
             Task2Form task2 = new Task2Form();
             проПрограмуToolStripMenuItem1.Click += task2.проПрограмуToolStripMenuItem1_Click;
             допомогаToolStripMenuItem1.Click += task2.допомогаToolStripMenuItem1_Click;
-            назадДоМенюToolStripMenuItem1.Click += task2.назаддоМенюToolStripMenuItem_Click;
             вийтиToolStripMenuItem1.Click += task2.вийтиToolStripMenuItem_Click;
 
             label1.Text = null;

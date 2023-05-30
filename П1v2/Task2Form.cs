@@ -19,18 +19,15 @@ namespace П1v2
         public Task2Form()
         {
             InitializeComponent();
-            MenuForm menu = new MenuForm();
             проПрограмуToolStripMenuItem.Click += проПрограмуToolStripMenuItem_Click;
             допомогаToolStripMenuItem.Click += допомогаToolStripMenuItem_Click;
 
-            Task1Form task1 = new Task1Form();
 
             обчислитиToolStripMenuItem1.Click += обчислитиToolStripMenuItem_Click;
             прочитатиЗФайлуToolStripMenuItem1.Click += прочитатиЗФайлуToolStripMenuItem_Click;
             проПрограмуToolStripMenuItem1.Click += проПрограмуToolStripMenuItem1_Click;
             допомогаToolStripMenuItem1.Click += допомогаToolStripMenuItem1_Click;
             вийтиToolStripMenuItem1.Click += вийтиToolStripMenuItem_Click;
-            назадДоМенюToolStripMenuItem1.Click += назаддоМенюToolStripMenuItem_Click;
         }
 
         public void вийтиToolStripMenuItem_Click(object sender, EventArgs e)

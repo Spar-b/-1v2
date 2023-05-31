@@ -59,7 +59,7 @@ namespace П1v2
             int value = Convert.ToInt32(textBox1.Text);
 
             temperatureList.Add(value);
-            listBox1.Items.Add(temperatureList.Count.ToString() + ": " + value.ToString());
+            listBox1.Items.Add(temperatureList.Count.ToString() + ":\t" + value.ToString());
 
 
             textBox1.Text = null;
@@ -126,6 +126,46 @@ namespace П1v2
                     $"Середня температура: {averageTemperature.ToString("0.00")}";
 
 
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+            else if (textBox.Text.Length >= 2 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox2.Enabled = radioButton1.Checked;
+            groupBox1.Enabled = radioButton2.Checked;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            temperatureList.Clear();
+
+            int leftBound, rightBound, num, value;
+
+            Random rd = new Random();
+            leftBound = Convert.ToInt32(textBox2.Text);
+            rightBound = Convert.ToInt32(textBox3.Text);
+            num = Convert.ToInt32(textBox4.Text);
+
+            for(int i=0;i<num;i++)
+            {
+                value = rd.Next(leftBound,rightBound+1);
+                temperatureList.Add(value);
+                listBox1.Items.Add(temperatureList.Count.ToString() + ":\t" + value.ToString());
+            }
         }
     }
 }

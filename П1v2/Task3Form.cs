@@ -58,8 +58,9 @@ namespace П1v2
 
             int value = Convert.ToInt32(textBox1.Text);
 
-            listBox1.Items.Add(value.ToString());
             temperatureList.Add(value);
+            listBox1.Items.Add(temperatureList.Count.ToString() + ": " + value.ToString());
+
 
             textBox1.Text = null;
         }

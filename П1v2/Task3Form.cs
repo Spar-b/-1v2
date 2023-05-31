@@ -30,6 +30,8 @@ namespace П1v2
             проПрограмуToolStripMenuItem1.Click += task2.проПрограмуToolStripMenuItem1_Click;
             допомогаToolStripMenuItem1.Click += task2.допомогаToolStripMenuItem1_Click;
             вийтиToolStripMenuItem1.Click += task2.вийтиToolStripMenuItem_Click;
+
+            label2.Text = null;
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -72,6 +74,7 @@ namespace П1v2
 
         private void обчислитиToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            label2.Text = null;
             if(temperatureList.Count==0)
             {
                 MessageBox.Show("Список порожній","Помилка обчислень",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -117,10 +120,9 @@ namespace П1v2
                 warmestDayString = warmestDayString.TrimEnd(',', ' ') + "\n";
             }
 
-            MessageBox.Show($"{warmestDayString}" +
+            label2.Text = $"{warmestDayString}" +
                     $"Максимальна температура: {maxTemperature}\n" +
-                    $"Середня температура: {averageTemperature.ToString("0.00")}",
-                    "Дані обчислень", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    $"Середня температура: {averageTemperature.ToString("0.00")}";
 
 
         }

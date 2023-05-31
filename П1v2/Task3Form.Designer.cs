@@ -32,6 +32,7 @@ namespace П1v2
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.обчислитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.очиститиСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вийтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.допомогаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,9 +44,9 @@ namespace П1v2
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.очиститиСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +73,14 @@ namespace П1v2
             this.обчислитиToolStripMenuItem.Size = new System.Drawing.Size(128, 32);
             this.обчислитиToolStripMenuItem.Text = "Обчислити";
             this.обчислитиToolStripMenuItem.Click += new System.EventHandler(this.обчислитиToolStripMenuItem_Click);
+            // 
+            // очиститиСписокToolStripMenuItem
+            // 
+            this.очиститиСписокToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.очиститиСписокToolStripMenuItem.Name = "очиститиСписокToolStripMenuItem";
+            this.очиститиСписокToolStripMenuItem.Size = new System.Drawing.Size(182, 32);
+            this.очиститиСписокToolStripMenuItem.Text = "Очистити список";
+            this.очиститиСписокToolStripMenuItem.Click += new System.EventHandler(this.очиститиСписокToolStripMenuItem_Click);
             // 
             // вийтиToolStripMenuItem
             // 
@@ -103,45 +112,46 @@ namespace П1v2
             this.допомогаToolStripMenuItem1,
             this.проПрограмуToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 160);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 132);
             // 
             // обчислитиToolStripMenuItem1
             // 
             this.обчислитиToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.обчислитиToolStripMenuItem1.Name = "обчислитиToolStripMenuItem1";
-            this.обчислитиToolStripMenuItem1.Size = new System.Drawing.Size(220, 32);
+            this.обчислитиToolStripMenuItem1.Size = new System.Drawing.Size(214, 32);
             this.обчислитиToolStripMenuItem1.Text = "Обчислити";
             // 
             // вийтиToolStripMenuItem1
             // 
             this.вийтиToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.вийтиToolStripMenuItem1.Name = "вийтиToolStripMenuItem1";
-            this.вийтиToolStripMenuItem1.Size = new System.Drawing.Size(220, 32);
+            this.вийтиToolStripMenuItem1.Size = new System.Drawing.Size(214, 32);
             this.вийтиToolStripMenuItem1.Text = "Вийти";
             // 
             // допомогаToolStripMenuItem1
             // 
             this.допомогаToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.допомогаToolStripMenuItem1.Name = "допомогаToolStripMenuItem1";
-            this.допомогаToolStripMenuItem1.Size = new System.Drawing.Size(220, 32);
+            this.допомогаToolStripMenuItem1.Size = new System.Drawing.Size(214, 32);
             this.допомогаToolStripMenuItem1.Text = "Допомога";
             // 
             // проПрограмуToolStripMenuItem1
             // 
             this.проПрограмуToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.проПрограмуToolStripMenuItem1.Name = "проПрограмуToolStripMenuItem1";
-            this.проПрограмуToolStripMenuItem1.Size = new System.Drawing.Size(220, 32);
+            this.проПрограмуToolStripMenuItem1.Size = new System.Drawing.Size(214, 32);
             this.проПрограмуToolStripMenuItem1.Text = "Про програму";
             // 
             // listBox1
             // 
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 56);
+            this.listBox1.ItemHeight = 25;
+            this.listBox1.Location = new System.Drawing.Point(13, 56);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(270, 324);
+            this.listBox1.Size = new System.Drawing.Size(270, 304);
             this.listBox1.TabIndex = 4;
             // 
             // textBox1
@@ -164,14 +174,6 @@ namespace П1v2
             this.button1.Text = "Ввести значення";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // очиститиСписокToolStripMenuItem
-            // 
-            this.очиститиСписокToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.очиститиСписокToolStripMenuItem.Name = "очиститиСписокToolStripMenuItem";
-            this.очиститиСписокToolStripMenuItem.Size = new System.Drawing.Size(182, 32);
-            this.очиститиСписокToolStripMenuItem.Text = "Очистити список";
-            this.очиститиСписокToolStripMenuItem.Click += new System.EventHandler(this.очиститиСписокToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -206,12 +208,23 @@ namespace П1v2
             this.comboBox1.TabIndex = 8;
             this.comboBox1.Text = "Вересень";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(452, 270);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "label2";
+            // 
             // Task3Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 427);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -219,7 +232,7 @@ namespace П1v2
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Task3Form";
-            this.Text = "Task3Form";
+            this.Text = "Одновимірний масив";
             this.Load += new System.EventHandler(this.Task3Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -247,5 +260,6 @@ namespace П1v2
         private System.Windows.Forms.ToolStripMenuItem очиститиСписокToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

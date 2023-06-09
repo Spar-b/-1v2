@@ -34,6 +34,7 @@ namespace П1v2
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.завдання1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.завдання2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.завдання3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.допомогаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вийтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,7 @@ namespace П1v2
             this.допомогаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.проПрограмуToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.вийтиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.завдання3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.завдання4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +54,7 @@ namespace П1v2
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(238, 251);
+            this.label1.Location = new System.Drawing.Point(309, 251);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(503, 36);
             this.label1.TabIndex = 0;
@@ -66,12 +67,13 @@ namespace П1v2
             this.завдання1ToolStripMenuItem,
             this.завдання2ToolStripMenuItem,
             this.завдання3ToolStripMenuItem,
+            this.завдання4ToolStripMenuItem,
             this.допомогаToolStripMenuItem,
             this.проПрограмуToolStripMenuItem,
             this.вийтиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(938, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1080, 36);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -90,6 +92,14 @@ namespace П1v2
             this.завдання2ToolStripMenuItem.Size = new System.Drawing.Size(151, 32);
             this.завдання2ToolStripMenuItem.Text = "Завдання №2";
             this.завдання2ToolStripMenuItem.Click += new System.EventHandler(this.завдання2ToolStripMenuItem_Click);
+            // 
+            // завдання3ToolStripMenuItem
+            // 
+            this.завдання3ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.завдання3ToolStripMenuItem.Name = "завдання3ToolStripMenuItem";
+            this.завдання3ToolStripMenuItem.Size = new System.Drawing.Size(151, 32);
+            this.завдання3ToolStripMenuItem.Text = "Завдання №3";
+            this.завдання3ToolStripMenuItem.Click += new System.EventHandler(this.завдання3ToolStripMenuItem_Click);
             // 
             // допомогаToolStripMenuItem
             // 
@@ -162,19 +172,19 @@ namespace П1v2
             this.вийтиToolStripMenuItem1.Size = new System.Drawing.Size(214, 32);
             this.вийтиToolStripMenuItem1.Text = "Вийти";
             // 
-            // завдання3ToolStripMenuItem
+            // завдання4ToolStripMenuItem
             // 
-            this.завдання3ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.завдання3ToolStripMenuItem.Name = "завдання3ToolStripMenuItem";
-            this.завдання3ToolStripMenuItem.Size = new System.Drawing.Size(151, 32);
-            this.завдання3ToolStripMenuItem.Text = "Завдання №3";
-            this.завдання3ToolStripMenuItem.Click += new System.EventHandler(this.завдання3ToolStripMenuItem_Click);
+            this.завдання4ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.завдання4ToolStripMenuItem.Name = "завдання4ToolStripMenuItem";
+            this.завдання4ToolStripMenuItem.Size = new System.Drawing.Size(151, 32);
+            this.завдання4ToolStripMenuItem.Text = "Завдання №4";
+            this.завдання4ToolStripMenuItem.Click += new System.EventHandler(this.завдання4ToolStripMenuItem_Click);
             // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 536);
+            this.ClientSize = new System.Drawing.Size(1080, 536);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -207,6 +217,7 @@ namespace П1v2
         private System.Windows.Forms.ToolStripMenuItem проПрограмуToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem вийтиToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem завдання3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem завдання4ToolStripMenuItem;
     }
 }
 

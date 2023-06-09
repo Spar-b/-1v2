@@ -65,7 +65,7 @@ namespace П1v2
             textBox1.Text = null;
         }
 
-        private void очиститиСписокToolStripMenuItem_Click(object sender, EventArgs e)
+        public void очиститиСписокToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
             temperatureList.Clear();
@@ -142,7 +142,7 @@ namespace П1v2
             }
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        public void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             groupBox2.Enabled = radioButton1.Checked;
             groupBox1.Enabled = radioButton2.Checked;

@@ -71,5 +71,11 @@ namespace П1v2
             Task4Form task4 = new Task4Form();
             task4.Show();
         }
+
+        private void завдання5ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Task5Form task5 = new Task5Form();
+            task5.Show();
+        }
     }
 }

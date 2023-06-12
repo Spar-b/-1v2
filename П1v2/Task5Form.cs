@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace П1v2
 {
     public partial class Task5Form : Form
     {
+        public List<Worker> workersList = new List<Worker>();
         DataTable table = new DataTable();
-        DataSet enterData = new DataSet();
         public Task5Form()
         {
             InitializeComponent();
@@ -31,17 +33,21 @@ namespace П1v2
             допомогаToolStripMenuItem1.Click += task2.допомогаToolStripMenuItem1_Click;
             проПрограмуToolStripMenuItem1.Click += task2.проПрограмуToolStripMenuItem1_Click;
 
-            dataGridView1.CellValidating += dataGridView1_CellValidating;
-            dataGridView1.CellEndEdit += dataGridView1_CellEndEdit;
+            textBox2.KeyPress += textBox_KeyPress;
         }
 
         private void зберегтиЯкToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             saveFileDialog1.ShowDialog();
-            
         }
 
         private void створитиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateTable();
+            dataGridView1.DataSource = table;
+            dataGridView1.Refresh();
+        }
+        private void CreateTable()
         {
             if (!table.Columns.Contains("Прізвище"))
             {
@@ -66,44 +72,7 @@ namespace П1v2
                 sexColumn.DataType = Type.GetType("System.String");
                 table.Columns.Add(sexColumn);
             }
-
-            dataGridView1.DataSource = table;
-            dataGridView1.Refresh();
         }
-
-        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            string newCellValue = e.FormattedValue.ToString();
-
-            if (string.IsNullOrWhiteSpace(newCellValue))
-            {
-                dataGridView1.Rows[e.RowIndex].ErrorText = "Please enter a value in the cell.";
-                e.Cancel = true;
-            }
-
-            if (e.ColumnIndex == dataGridView1.Columns["Зарплата"].Index)
-            {
-                if (!int.TryParse(newCellValue, out int salary))
-                {
-                    dataGridView1.Rows[e.RowIndex].ErrorText = "Please enter a valid integer value.";
-                    e.Cancel = true;
-                }
-            }
-        }
-        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewCell cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
-            if (string.IsNullOrWhiteSpace(cell.Value?.ToString()))
-            {
-                dataGridView1.Rows[e.RowIndex].ErrorText = "Please enter a value in the cell.";
-            }
-            else
-            {
-                dataGridView1.Rows[e.RowIndex].ErrorText = string.Empty;
-            }
-        }
-
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(saveFileDialog1.FileName))
@@ -111,9 +80,14 @@ namespace П1v2
                 MessageBox.Show("Не введено ім'я файлу");
                 return;
             }
-            table.TableName = "База даних";
-            enterData.WriteXml(saveFileDialog1.FileName);
+
+            using (FileStream fileStream = new FileStream(saveFileDialog1.FileName, FileMode.Create))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(fileStream, workersList);
+            }
         }
+
 
         private void відкритиToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -127,16 +101,107 @@ namespace П1v2
                 MessageBox.Show("Не обрано ім'я файлу");
                 return;
             }
-
-            enterData.ReadXml(openFileDialog1.FileName);
-            string XMLstring = enterData.GetXml();
-
-            if (enterData.Tables.Count > 0)
+            using (FileStream fileStream = new FileStream(openFileDialog1.FileName, FileMode.Open))
             {
-                table = enterData.Tables[0];
-                dataGridView1.DataSource = table;
+                BinaryFormatter formatter = new BinaryFormatter();
+                workersList = (List<Worker>)formatter.Deserialize(fileStream);
+
+                CreateTable();
+                foreach (Worker worker in workersList)
+                {
+                    table.Rows.Add(worker.lastName, worker.salary, worker.sex);
+                }
+            }
+
+            dataGridView1.DataSource = table;
+            dataGridView1.Refresh();
+        }
+
+
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && !(e.KeyChar == '-' && textBox.Text.Length == 0))
+            {
+                e.Handled = true;
+            }
+            else if (textBox.Text.Replace("-", "").Length >= 6 && e.KeyChar != '\b')
+            {
+                e.Handled = true;
             }
         }
 
+        private void очиститиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            table.Rows.Clear();
+            dataGridView1.Refresh();
+        }
+
+        private void додатиЕлементToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.DataSource == null)
+            {
+                MessageBox.Show("Жодна таблиця не завантажена", "Помилка введення", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Не введено усіх значень", "Помилка введення", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string lastname, sex; int salary;
+
+            lastname = textBox1.Text;
+            salary = Convert.ToInt32(textBox2.Text);
+            sex = Convert.ToString(comboBox1.SelectedItem);
+
+            Worker worker = new Worker(lastname, salary, sex);
+            workersList.Add(worker);
+            table.Rows.Add(lastname, salary, sex);
+            dataGridView1.Refresh();
+        }
+
+        private void видалитиЕлементToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string lastname, sex; int salary;
+
+            lastname = textBox1.Text;
+            salary = Convert.ToInt32(textBox2.Text);
+            sex = Convert.ToString(comboBox1.SelectedItem);
+
+            for(int i=0;i<workersList.Count;i++)
+            {
+                if(workersList[i].lastName.Equals(lastname) && workersList[i].salary == salary && workersList[i].sex.Equals(sex))
+                {
+                    workersList.RemoveAt(i);
+                }
+            }
+            RefreshTable();
+        }
+        public void RefreshTable()
+        {
+            table.Rows.Clear();
+            foreach(Worker worker in workersList)
+            {
+                table.Rows.Add(worker.lastName,worker.salary,worker.sex);
+            }
+            dataGridView1.Refresh();
+        }
+    }
+
+    [Serializable]
+    public struct Worker
+    {
+        public readonly string lastName;
+        public readonly int salary;
+        public readonly string sex;
+
+        public Worker(string lastname, int salary, string sex)
+        {
+            this.lastName = lastname;
+            this.salary = salary;
+            this.sex = sex;
+        }
     }
 }

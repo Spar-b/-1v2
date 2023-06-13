@@ -76,7 +76,56 @@ namespace П1v2
                 sexColumn.DataType = Type.GetType("System.String");
                 table.Columns.Add(sexColumn);
             }
+
+            if (!maleMinimumSalaryTable.Columns.Contains("Прізвище"))
+            {
+                DataColumn lastName = new DataColumn();
+                lastName.ColumnName = "Прізвище";
+                lastName.DataType = Type.GetType("System.String");
+                maleMinimumSalaryTable.Columns.Add(lastName);
+            }
+
+            if (!maleMinimumSalaryTable.Columns.Contains("Зарплата"))
+            {
+                DataColumn salary = new DataColumn();
+                salary.ColumnName = "Зарплата";
+                salary.DataType = Type.GetType("System.Int32");
+                maleMinimumSalaryTable.Columns.Add(salary);
+            }
+
+            if (!maleMinimumSalaryTable.Columns.Contains("Стать"))
+            {
+                DataColumn sexColumn = new DataColumn();
+                sexColumn.ColumnName = "Стать";
+                sexColumn.DataType = Type.GetType("System.String");
+                maleMinimumSalaryTable.Columns.Add(sexColumn);
+            }
+
+            if (!femaleMinimumSalaryTable.Columns.Contains("Прізвище"))
+            {
+                DataColumn lastName = new DataColumn();
+                lastName.ColumnName = "Прізвище";
+                lastName.DataType = Type.GetType("System.String");
+                femaleMinimumSalaryTable.Columns.Add(lastName);
+            }
+
+            if (!femaleMinimumSalaryTable.Columns.Contains("Зарплата"))
+            {
+                DataColumn salary = new DataColumn();
+                salary.ColumnName = "Зарплата";
+                salary.DataType = Type.GetType("System.Int32");
+                femaleMinimumSalaryTable.Columns.Add(salary);
+            }
+
+            if (!femaleMinimumSalaryTable.Columns.Contains("Стать"))
+            {
+                DataColumn sexColumn = new DataColumn();
+                sexColumn.ColumnName = "Стать";
+                sexColumn.DataType = Type.GetType("System.String");
+                femaleMinimumSalaryTable.Columns.Add(sexColumn);
+            }
         }
+
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(saveFileDialog1.FileName))
@@ -233,7 +282,9 @@ namespace П1v2
             }
 
             int maleMinimumWage = 999999, femaleMinimumWage = 999999;
-            
+
+            maleMinimumSalaryTable.Rows.Clear();
+            femaleMinimumSalaryTable.Rows.Clear();
 
             foreach(Worker worker in workersList)
             {
@@ -317,6 +368,7 @@ namespace П1v2
                 comboBox1.SelectedItem = Convert.ToString(selectedRow.Cells["Стать"].Value);
             }
         }
+
     }
 
     [Serializable]

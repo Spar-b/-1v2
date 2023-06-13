@@ -15,7 +15,10 @@ namespace П1v2
     public partial class Task5Form : Form
     {
         public List<Worker> workersList = new List<Worker>();
-        DataTable table = new DataTable();
+        private DataTable table = new DataTable();
+        private int selectedRowIndex = -1;
+        private DataTable maleMinimumSalaryTable = new DataTable();
+        private DataTable femaleMinimumSalaryTable = new DataTable();
         public Task5Form()
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace П1v2
             допомогаToolStripMenuItem1.Click += task2.допомогаToolStripMenuItem1_Click;
             проПрограмуToolStripMenuItem1.Click += task2.проПрограмуToolStripMenuItem1_Click;
 
+            dataGridView1.CellClick += dataGridView1_CellClick;
             textBox2.KeyPress += textBox_KeyPress;
         }
 
@@ -103,6 +107,7 @@ namespace П1v2
                 MessageBox.Show("Не обрано ім'я файлу");
                 return;
             }
+            table.Rows.Clear();
             using (FileStream fileStream = new FileStream(openFileDialog1.FileName, FileMode.Open))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -114,7 +119,6 @@ namespace П1v2
                     table.Rows.Add(worker.lastName, worker.salary, worker.sex);
                 }
             }
-
             dataGridView1.DataSource = table;
             dataGridView1.Refresh();
 
@@ -140,6 +144,7 @@ namespace П1v2
         {
             table.Rows.Clear();
             dataGridView1.Refresh();
+
         }
 
         private void додатиЕлементToolStripMenuItem_Click(object sender, EventArgs e)
@@ -174,31 +179,40 @@ namespace П1v2
                 return;
             }
 
-            string lastname, sex; int salary;bool workerRemoved = false;
+            string lastname, sex;
+            int salary;
+            bool workerRemoved = false;
 
             lastname = textBox1.Text;
             salary = Convert.ToInt32(textBox2.Text);
             sex = Convert.ToString(comboBox1.SelectedItem);
 
-            for(int i=0;i<workersList.Count;i++)
+            List<int> indicesToRemove = new List<int>();
+
+            for (int i = 0; i < workersList.Count; i++)
             {
-                if(workersList[i].lastName.Equals(lastname) && workersList[i].salary == salary && workersList[i].sex.Equals(sex))
+                if (workersList[i].lastName.Equals(lastname) && workersList[i].salary == salary && workersList[i].sex.Equals(sex))
                 {
-                    workersList.RemoveAt(i);
+                    indicesToRemove.Add(i);
                     workerRemoved = true;
                 }
             }
-            if(workerRemoved)
+
+            for (int i = indicesToRemove.Count - 1; i >= 0; i--)
             {
-                MessageBox.Show($"Успішно видалено робітника {lastname}","Операція успішна",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                return;
+                workersList.RemoveAt(indicesToRemove[i]);
+            }
+
+            RefreshTable();
+
+            if (workerRemoved)
+            {
+                MessageBox.Show($"Успішно видалено робітників з прізвищем {lastname}", "Операція успішна", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Не знайдено робітника, що відповідав би заданим параметрам", "Невдала операція", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                MessageBox.Show("Не знайдено робітників, що відповідають заданим параметрам", "Невдала операція", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            RefreshTable();
         }
         public void RefreshTable()
         {
@@ -218,20 +232,29 @@ namespace П1v2
                 return;
             }
 
-            string maleWithMinimumWage ="", femaleWithMinimumWage="";
             int maleMinimumWage = 999999, femaleMinimumWage = 999999;
+            
 
             foreach(Worker worker in workersList)
             {
                 if(worker.sex.Equals("Чоловіча") && worker.salary < maleMinimumWage)
                 {
                     maleMinimumWage = worker.salary;
-                    maleWithMinimumWage = worker.lastName;
                 }
                 if (worker.sex.Equals("Жіноча") && worker.salary < femaleMinimumWage)
                 {
                     femaleMinimumWage = worker.salary;
-                    femaleWithMinimumWage = worker.lastName;
+                }
+            }
+            foreach(Worker worker in workersList)
+            {
+                if (worker.sex.Equals("Чоловіча") && worker.salary == maleMinimumWage)
+                {
+                    maleMinimumSalaryTable.Rows.Add(worker.lastName, worker.salary, worker.sex);
+                }
+                if (worker.sex.Equals("Жіноча") && worker.salary == femaleMinimumWage)
+                {
+                    femaleMinimumSalaryTable.Rows.Add(worker.lastName, worker.salary, worker.sex);
                 }
             }
             if(maleMinimumWage == 999999)
@@ -241,8 +264,8 @@ namespace П1v2
             }
             else
             {
-                textBox3.Text = maleWithMinimumWage;
-                textBox4.Text = maleMinimumWage.ToString();
+                dataGridView2.DataSource = maleMinimumSalaryTable;
+                dataGridView2.Refresh();
             }
 
             if (femaleMinimumWage == 999999)
@@ -252,10 +275,47 @@ namespace П1v2
             }
             else
             {
-                textBox5.Text = femaleWithMinimumWage;
-                textBox6.Text = femaleMinimumWage.ToString();
+                dataGridView3.DataSource = femaleMinimumSalaryTable;
+                dataGridView3.Refresh();
             }
-            
+        }
+
+        private void редагуватиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (selectedRowIndex >= 0)
+            {
+                if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || comboBox1.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Не введено усіх значень", "Помилка введення", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string lastname = textBox1.Text;
+                int salary = Convert.ToInt32(textBox2.Text);
+                string sex = Convert.ToString(comboBox1.SelectedItem);
+
+                Worker editedWorker = new Worker(lastname, salary, sex);
+                workersList[selectedRowIndex] = editedWorker;
+                RefreshTable();
+
+                MessageBox.Show("Робітника успішно змінено", "Операція успішна", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Оберіть рядок для редагування", "Помилка вибору", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRowIndex = e.RowIndex;
+            if (selectedRowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedRowIndex];
+                textBox1.Text = Convert.ToString(selectedRow.Cells["Прізвище"].Value);
+                textBox2.Text = Convert.ToString(selectedRow.Cells["Зарплата"].Value);
+                comboBox1.SelectedItem = Convert.ToString(selectedRow.Cells["Стать"].Value);
+            }
         }
     }
 

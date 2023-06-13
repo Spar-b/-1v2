@@ -33,6 +33,7 @@ namespace П1v2
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Task5Form));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.вийтиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.допомогаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +50,7 @@ namespace П1v2
             this.очиститиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.додатиЕлементToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видалитиЕлементToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.обчислитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -66,10 +68,11 @@ namespace П1v2
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.обчислитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -205,6 +208,13 @@ namespace П1v2
             this.видалитиЕлементToolStripMenuItem.Text = "Видалити елемент";
             this.видалитиЕлементToolStripMenuItem.Click += new System.EventHandler(this.видалитиЕлементToolStripMenuItem_Click);
             // 
+            // обчислитиToolStripMenuItem
+            // 
+            this.обчислитиToolStripMenuItem.Name = "обчислитиToolStripMenuItem";
+            this.обчислитиToolStripMenuItem.Size = new System.Drawing.Size(265, 32);
+            this.обчислитиToolStripMenuItem.Text = "Обчислити";
+            this.обчислитиToolStripMenuItem.Click += new System.EventHandler(this.обчислитиToolStripMenuItem_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -228,7 +238,7 @@ namespace П1v2
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 132);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -241,7 +251,7 @@ namespace П1v2
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(683, 390);
+            this.dataGridView1.Size = new System.Drawing.Size(683, 307);
             this.dataGridView1.TabIndex = 2;
             // 
             // openFileDialog1
@@ -336,7 +346,7 @@ namespace П1v2
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(714, 71);
+            this.label4.Location = new System.Drawing.Point(717, 220);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(336, 25);
             this.label4.TabIndex = 10;
@@ -347,7 +357,7 @@ namespace П1v2
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(714, 160);
+            this.label5.Location = new System.Drawing.Point(717, 309);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(319, 25);
             this.label5.TabIndex = 11;
@@ -358,7 +368,7 @@ namespace П1v2
             // 
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(719, 109);
+            this.textBox3.Location = new System.Drawing.Point(722, 258);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(190, 30);
@@ -368,7 +378,7 @@ namespace П1v2
             // 
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(934, 109);
+            this.textBox4.Location = new System.Drawing.Point(937, 258);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(140, 30);
@@ -378,7 +388,7 @@ namespace П1v2
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.Location = new System.Drawing.Point(719, 206);
+            this.textBox5.Location = new System.Drawing.Point(722, 355);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(190, 30);
@@ -388,18 +398,21 @@ namespace П1v2
             // 
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox6.Location = new System.Drawing.Point(934, 206);
+            this.textBox6.Location = new System.Drawing.Point(937, 355);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(140, 30);
             this.textBox6.TabIndex = 14;
             // 
-            // обчислитиToolStripMenuItem
+            // pictureBox1
             // 
-            this.обчислитиToolStripMenuItem.Name = "обчислитиToolStripMenuItem";
-            this.обчислитиToolStripMenuItem.Size = new System.Drawing.Size(265, 32);
-            this.обчислитиToolStripMenuItem.Text = "Обчислити";
-            this.обчислитиToolStripMenuItem.Click += new System.EventHandler(this.обчислитиToolStripMenuItem_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(27, 51);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(866, 54);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // Task5Form
             // 
@@ -407,6 +420,7 @@ namespace П1v2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 587);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox4);
@@ -428,6 +442,7 @@ namespace П1v2
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,5 +484,6 @@ namespace П1v2
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

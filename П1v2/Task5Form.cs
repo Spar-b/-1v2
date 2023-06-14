@@ -40,10 +40,7 @@ namespace П1v2
             textBox2.KeyPress += textBox_KeyPress;
         }
 
-        private void зберегтиЯкToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            saveFileDialog1.ShowDialog();
-        }
+        
 
         private void створитиToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -125,7 +122,10 @@ namespace П1v2
                 femaleMinimumSalaryTable.Columns.Add(sexColumn);
             }
         }
-
+        private void зберегтиЯкToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.ShowDialog();
+        }
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(saveFileDialog1.FileName))
